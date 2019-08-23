@@ -5,7 +5,8 @@ function Home(props) {
   console.log('this is Home: props', props)
   return (
     <React.Fragment>
-      <h2>Home Page Let's Speak Grammatically</h2>
+    <h1>NewsWindow</h1>
+    <h2>How Countries View The News</h2>
     </React.Fragment>
   );
 }

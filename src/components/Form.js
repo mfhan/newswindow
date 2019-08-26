@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../App.css';
 
 class Form extends React.Component {
   constructor(props){
@@ -9,14 +9,6 @@ class Form extends React.Component {
   }
 }
 
-  handleClick = (e) =>{
-    e.preventDefault()
-    console.log("Search term submitted", e)
-    //we need to lift state to the CSA component
-    //below line delivers the info to the parent app
-    this.props.onClick(this.state.value)
-    this.setState({value: ''})
-  }
 
   handleChange = (e) => {
     console.log("this is handleChange", e.target.value)
@@ -27,17 +19,16 @@ class Form extends React.Component {
 
 
  render(){
+   // console.log('this.props.searchInput', this.props.searchInput)
    return(
-     <form action="">
+     <form onSubmit={(e)=>this.props.searchInput(e, this.state.value)}>
         <input
         type = 'text'
         placeholder = 'Search and Compare!'
         onChange = {this.handleChange}
         value = {this.state.value}
         />
-         <button
-         onClick={this.handleClick}
-         >Submit</button>
+         <button type='submit'>Submit</button>
       </form>
    )
  }

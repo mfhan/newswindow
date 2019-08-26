@@ -4,7 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 NewsWindow allows readers to compare how top news is reported across countries. Upon opening the site, the reader gets three windows offering the top news in the US, UK and the English-speaking rest of the world.
 Then the user is invited to type a search term, which will return a list of (100?) stories grouped by country of origin.
-https://github.com/mfhan/newswindow
+
+##LINKS:
+
+-- Repo: https://github.com/mfhan/newswindow  
+-- Deployment:
 
 
 ### API info:

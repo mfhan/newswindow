@@ -1,6 +1,17 @@
+<header>
+  <li ><Link to="/">Home</Link></li>
+  <li ><Link to="/search">Search and Compare the News</Link></li>
+  <li ><Link to="/newslist">News Window</Link></li>
+  <li ><Link to="/about">About This Project</Link></li>
+</header>
+
+
 
   makeAllNewsCall = async()=>{
-    let queryLink = 'https://newsapi.org/v2/everything?q=Macron&apiKey=ded05226f8e9489888443d1b682e93c6'
+    let
+    let queryLink = 'https://newsapi.org/v2/everything?q='
+    +''
+    +'&apiKey=ded05226f8e9489888443d1b682e93c6'
     const response = await axios.get(queryLink)
 
       let newsList = response.data.articles.map((d,i)=>{
@@ -69,7 +80,7 @@
   this.makeUSNewsCall();
   this.makeUKNewsCall();
 
-  
+
     makeUSNewsCall = async()=>{
       let queryLink = 'https:newsapi.org/v2/top-headlines?' +
           'country=us&' +
@@ -111,3 +122,33 @@
             UKNewsList: UKNewsList
             })
     }
+
+
+
+    const NewsList=(props)=> {
+      // console.log('this is NewsList: props', props)
+      return (
+        <div>
+        {props.newsList.map((d, i) => {
+          return (
+            <div>
+              <h2>{d.title}</h2>
+              <a href={d.url} target='blank'>Link</a>
+              <p>{d.description}</p>
+            </div>
+          )
+        })}
+        </div>
+      );
+    }
+
+    export default NewsList;
+
+
+
+
+<Route exact path='/' render={(props)=><Home
+             searchInput={this.handleClick}/> }  />
+
+
+<Route exact path='/' render={(props)=><Home newsList = {this.state.newsList} /> }  />

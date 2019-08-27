@@ -17,7 +17,7 @@ function Home(props) {
 
       <NewsList newsList={props.searchList.filter((article) => article.country === 'us' && article.id !=='engadget'&& article.id !=='mashable'&& article.id !=='reddit-r-all'&& article.id !=='the-wall-street-journal') } />
       <NewsList newsList={props.searchList.filter((article) => article.country === 'gb')} />
-      <NewsList newsList={props.searchList.filter((article) => article.country !=='us' && article.country !=='gb' && article.country !=='ca'  && !article.name.includes(badIntlSources))  } />
+      <NewsList newsList={props.worldResultList} />
 
     </div>
     </>

@@ -105,4 +105,11 @@ makeSourceCall = async () => {
 
 ### Issues and Resolutions
 
-Brace for a hundred-pager here
+Brace for a hundred-pager here  
+
+#### API Limitations:
+
+From the get go, I knew that finding a decent API would be a daunting challenge. Resources that were apparently free and open to the public have vanished or been corralled behind corporate barriers.
+I tested resources such as
+I settled on NewsAPI despite serious misgivings regarding the relatively small list of sources they offer (134 total) because NewsAPI didn't ask for a fortune up-front and allowed for a reasonable number of daily queries (500).
+Alas, it took me a day of testing the news search functionalities

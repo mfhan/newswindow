@@ -11,7 +11,7 @@ body {
   /* justify-content: space-between; */
   min-height: 50vh;
 /*   margin: 0 auto; */
-  flex-direction: column;
+  flex-direction: row;
 }
 
 header,
@@ -20,27 +20,28 @@ footer {
 /*   height: 60px; */
   background: #646464;
   color:red;
-  line-height: 60px;
+  line-height: 0px;
   display: inline-block;
   /* flex: 0 20px; */
 }
 
 
 main {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   background: #F4F4F4;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 section {
   /* flex-basis: 150px; */
-  flex: 0 200px;
+  flex: 0 100px;
   background: #979797;
   color: black;
   margin: 5px;
   text-align: center;
   line-height: 10vh;
+  flex-direction:row;
   flex-grow: 1;
 }
 
@@ -72,21 +73,12 @@ form {
 }
 
 @media screen and (max-width: 600px){
-  main {
+  .container {
     flex-direction: column;
   }
 
   section {
-    order: 1;
-  }
-}
-
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    /* max-height: 600px; */
+    /* order: 1; */
   }
 }

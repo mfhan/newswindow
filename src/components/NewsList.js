@@ -8,7 +8,7 @@ const NewsList=(props)=> {
     {props.newsList.map((d, i) => {
       return (
         <div className='news-item'>
-          <h2>{d.title}</h2>
+          <h3>{d.title}</h3>
           <a href={d.url} target='blank'>Link</a>
           <p>{d.description}</p>
         </div>

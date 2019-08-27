@@ -2,6 +2,8 @@ import React from 'react';
 import '../App.css';
 import Home from './Home'
 import About from './About'
+import badIntlSources from '../services/badintlsources';
+import badSources from '../services/badsources';
 import NewsList from './NewsList'
 import Form from './Form'
 import axios from 'axios'
@@ -21,7 +23,9 @@ class Main extends React.Component {
     makeSourceCall = async()=>{
       let queryLink = 'https://newsapi.org/v2/sources?apiKey=ded05226f8e9489888443d1b682e93c6'
       const response = await axios.get(queryLink)
-      let sourceList = response.data.sources.map((d,i)=>{
+      let sourceList = response.data.sources
+        .filter(element => !element.name.includes(badIntlSources))
+        .map((d,i)=>{
           let sourceItem = {
             id: d.id,
             name: d.name,
@@ -30,6 +34,7 @@ class Main extends React.Component {
             country: d.country
           }
           console.log('sourceItem.name', sourceItem.name)
+          console.log('sourceList', sourceList)
           return sourceItem
         });
         window.localStorage.setItem('sourceList', JSON.stringify(sourceList))
@@ -81,9 +86,10 @@ class Main extends React.Component {
             name: d.source.name
           }
           sourceArray.forEach((newsOrg) => {
-            if (searchItem.name === newsOrg.name) {
+            if (searchItem.name === newsOrg.name || searchItem.id === newsOrg.id) {
               searchItem.country = newsOrg.country
               searchItem.language = newsOrg.language
+
             }
           })
           console.log(searchItem.name);
@@ -105,6 +111,8 @@ class Main extends React.Component {
       }
 
 
+
+
         handleClick = (e, userInput) =>{
           e.preventDefault()
           console.log("Search term submitted", userInput)
@@ -116,11 +124,10 @@ class Main extends React.Component {
 
 
     componentDidMount(){
-      console.log(this.state.sourceList)
+      console.log('sourcelist',this.state.sourceList)
       if (this.state.sourceList.length === 0) {
         this.makeSourceCall();
       }
-
       console.log('componentDidMount')
     }
 
@@ -133,8 +140,6 @@ class Main extends React.Component {
 // <Form  onClick={this.handleClick} />
   return (
     <main>
-
-
       <Switch>
       <Route exact path='/' render={(props)=><Home
         searchInput={this.handleClick}

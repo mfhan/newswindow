@@ -1,10 +1,11 @@
 import React from 'react';
 import '../App.css';
 
+// {'red': props.newsList.length}
 const NewsList=(props)=> {
-  console.log('this is NewsList', props)
+
   return (
-    <section className={props.addClass}>
+    <section className= {props.addClass}>
       <div>
       {props.newsList.length ? props.newsList.map((d, i) => {
         return (
@@ -15,7 +16,7 @@ const NewsList=(props)=> {
           </div>
         )
       }) :
-      <h1>Start a Search!</h1>}
+      <h1 className='news-item'>Start a Search!</h1>}
       </div>
     </section>
   );

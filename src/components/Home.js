@@ -10,14 +10,14 @@ function Home(props) {
   return (
     <>
       <h1 className='title'>NewsWindow: How Countries See The News</h1>
-        <p className = 'invitation'>Countries around the world see and frame the news differently. Type in a search word and see how the press in the US, the UK and the rest of the world offer differing angles and points of view. </p>
+        <div className = 'invitation'>Countries around the world see and frame the news differently. Type in a search word and see how the press in the US, the UK and the rest of the world offer differing angles and points of view. </div>
 
       <Form searchInput ={props.searchInput} />
 
       <div className ='container'>
         <NewsList addClass='us-news-list'  newsList={props.usSearchList} />
 
-        <NewsList addClass='gb-news-list'  newsList={props.gbSearchList} />
+        <NewsList addClass='gb-news-list'   newsList={props.gbSearchList} />
 
         <NewsList addClass='world-news-list'  newsList={props.worldResultList} />
       </div>

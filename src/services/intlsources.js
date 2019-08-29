@@ -1,0 +1,1 @@
+export default 'lemonde.fr,tagesspiegel.de,zeit.de,elmundo.es,globo.com,handelsblatt.com,lagaceta.com.ar,repubblica.it,lenta.ru,lesechos.fr,liberation.fr,news24.com,rbc.ru,rtlnieuws.nl,spiegel.de,svd.se,thehindu.com,jpost.com,wiwo.de,xinhuanet.com'

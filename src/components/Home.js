@@ -1,27 +1,25 @@
 import React from 'react';
 import NewsList from './NewsList.js'
 import Form from './Form'
-import badIntlSources from '../services/badintlsources';
-import badSources from '../services/badsources';
 import '../App.css';
 
 
 
 function Home(props) {
-  console.log('this is Home: props', props)
+  // console.log('this is Home: props', props)
   return (
     <>
-      <h1>NewsWindow: How Countries See The News</h1>
+      <h1 className='title'>NewsWindow: How Countries See The News</h1>
+        <p className = 'invitation'>Countries around the world see and frame the news differently. Type in a search word and see how the press in the US, the UK and the rest of the world offer differing angles and points of view. </p>
 
       <Form searchInput ={props.searchInput} />
+
       <div className ='container'>
-        <NewsList className = 'us-news-list'
-        newsList={props.searchList
-          .filter((article, i) => article.country === 'us' && article.id !=='engadget'&& article.id !=='mashable'&& article.id !=='reddit-r-all'&& article.id !=='the-wall-street-journal')} />
+        <NewsList addClass='us-news-list'  newsList={props.usSearchList} />
 
-        <NewsList className = 'uk-news-list'  newsList={props.searchList.filter((article, i) => article.country === 'gb')} />
+        <NewsList addClass='gb-news-list'  newsList={props.gbSearchList} />
 
-        <NewsList className = 'world-news-list'  newsList={props.worldResultList} />
+        <NewsList addClass='world-news-list'  newsList={props.worldResultList} />
       </div>
     </>
   );

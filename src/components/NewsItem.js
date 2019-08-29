@@ -1,12 +1,11 @@
 import React from 'react';
 import '../App.css';
 
-const NewsList=(props)=> {
+const NewsItem=(props)=> {
   console.log('this is NewsList: props', props)
-  // let limit = props.newsList.slice(0,10)
   return (
     <section>
-    {props.newsList.length ? props.newsList.map((d, i) => {
+    {props.newsList.map((d, i) => {
       return (
         <div className='news-item'>
           <h3>{d.title}</h3>
@@ -14,9 +13,10 @@ const NewsList=(props)=> {
           <p>{d.description}</p>
         </div>
       )
-    }) : <h1>No news yet.... <br />Start a Search!</h1>}
+    })}
     </section>
   );
 }
 
-export default NewsList;
+
+export default NewsItem;

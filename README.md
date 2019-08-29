@@ -110,6 +110,6 @@ Brace for a hundred-pager here
 #### API Limitations:
 
 From the get go, I knew that finding a decent API would be a daunting challenge. Resources that were apparently free and open to the public have vanished or been corralled behind corporate barriers.
-I tested resources such as
+I tested resources such as GNews (limited response size; no data on language or country); EventRegister (limited number of queries before being moved to a paid tier).
 I settled on NewsAPI despite serious misgivings regarding the relatively small list of sources they offer (134 total) because NewsAPI didn't ask for a fortune up-front and allowed for a reasonable number of daily queries (500).
-Alas, it took me a day of testing the news search functionalities
+Alas, it took me a day of testing the news search functionalities to realize that NewsApi's response data was very shallow for the purposes of my app. A large number of sources are pure aggregators 

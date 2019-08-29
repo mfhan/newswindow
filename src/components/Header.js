@@ -5,10 +5,10 @@ import '../App.css';
 function Header (props) {
 
   return (
-     <header>
+     <header class="topnav" id="myTopnav">
        <li ><Link to="/">Home</Link></li>
        <li ><Link to="/about">About This Project</Link></li>
-       <li ><Link to="/about">How to Conttibute</Link></li>
+       <li ><Link to="/about">How to Contribute</Link></li>
      </header>
 
   );

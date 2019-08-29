@@ -5,6 +5,8 @@ import badIntlSources from '../services/badintlsources';
 import badSources from '../services/badsources';
 import '../App.css';
 
+
+
 function Home(props) {
   console.log('this is Home: props', props)
   return (
@@ -13,9 +15,13 @@ function Home(props) {
 
       <Form searchInput ={props.searchInput} />
       <div className ='container'>
-        <NewsList newsList={props.searchList.filter((article) => article.country === 'us' && article.id !=='engadget'&& article.id !=='mashable'&& article.id !=='reddit-r-all'&& article.id !=='the-wall-street-journal') } />
-        <NewsList newsList={props.searchList.filter((article) => article.country === 'gb')} />
-        <NewsList newsList={props.worldResultList} />
+        <NewsList className = 'us-news-list'
+        newsList={props.searchList
+          .filter((article, i) => article.country === 'us' && article.id !=='engadget'&& article.id !=='mashable'&& article.id !=='reddit-r-all'&& article.id !=='the-wall-street-journal')} />
+
+        <NewsList className = 'uk-news-list'  newsList={props.searchList.filter((article, i) => article.country === 'gb')} />
+
+        <NewsList className = 'world-news-list'  newsList={props.worldResultList} />
       </div>
     </>
   );

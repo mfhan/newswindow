@@ -3,10 +3,10 @@ import '../App.css';
 
 const NewsList=(props)=> {
   console.log('this is NewsList: props', props)
-  // let limit = props.newsList.slice(0,10)
+  let limit = props.newsList.slice(0,10)
   return (
     <section>
-    {props.newsList.length ? props.newsList.map((d, i) => {
+    {props.newsList.length ? limit.map((d, i) => {
       return (
         <div className='news-item'>
           <h3>{d.title}</h3>

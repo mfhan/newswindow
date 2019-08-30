@@ -16,7 +16,7 @@ const NewsList=(props)=> {
           </div>
         )
       }) :
-      <h1 className='news-item'>Start a Search!</h1>}
+      <div className={props.preClass}></div>}
       </div>
     </section>
   );

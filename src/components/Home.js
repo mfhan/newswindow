@@ -3,26 +3,44 @@ import NewsList from './NewsList.js'
 import Form from './Form'
 import '../App.css';
 
+class Home extends React.Component {
+  constructor(props){
+  super(props)
+  // this.state = {
+  //   value: ''
+  // }
+}
 
+  // handleChange = (e) => {
+  //   console.log("this is handleChange", e.target.value)
+  //   this.setState({
+  //     value: e.target.value
+  //   })
+  // }
 
-function Home(props) {
-  // console.log('this is Home: props', props)
+  render(){
   return (
     <>
-      <h1 className='title'>NewsWindow: How Countries See The News</h1>
-        <div className = 'invitation'>Countries around the world see and frame the news differently. Type in a search word and see how the press in the US, the UK and the rest of the world offer differing angles and points of view. </div>
+    <div className= 'intro'>
+      <h1 className='title'>NEWSWINDOW <br />How Countries See The News</h1>
+        <div className = 'invitation'><span>Countries around the world see and frame the news differently. <br />Type in a search word to how angles and points of view vary. </span></div>
 
-      <Form searchInput ={props.searchInput} />
+      <Form
+      searchInput ={this.props.searchInput}  />
+
+      </div>
 
       <div className ='container'>
-        <NewsList addClass='us-news-list'  newsList={props.usSearchList} />
+        <NewsList addClass='us-news-list' preClass='us-news-list-pre' newsList={this.props.usSearchList} />
 
-        <NewsList addClass='gb-news-list'   newsList={props.gbSearchList} />
+        <NewsList addClass='gb-news-list' preClass='gb-news-list-pre'  newsList={this.props.gbSearchList} />
 
-        <NewsList addClass='world-news-list'  newsList={props.worldResultList} />
+        <NewsList addClass='world-news-list' preClass='world-news-list-pre' newsList={this.props.worldResultList} />
       </div>
+
     </>
   );
+  }
 }
 
 export default Home;

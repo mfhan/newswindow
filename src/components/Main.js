@@ -51,7 +51,7 @@ class Main extends React.Component {
     + userInput
     +'&domains='
     + usSources
-    +'&sortBy=popularity&pageSize=20&apiKey=ded05226f8e9489888443d1b682e93c6'
+    +'&sortBy=popularity&pageSize=15&apiKey=ded05226f8e9489888443d1b682e93c6'
     const response = await axios.get(queryLink)
     console.log('this is US response', response)
     let usSearchList = response.data.articles
@@ -81,7 +81,7 @@ class Main extends React.Component {
     + userInput
     +'&domains='
     + gbSources
-    +'&sortBy=popularity&pageSize=20&apiKey=ded05226f8e9489888443d1b682e93c6'
+    +'&sortBy=popularity&pageSize=15&apiKey=ded05226f8e9489888443d1b682e93c6'
     const response = await axios.get(queryLink)
     console.log('this is GB response', response)
     let gbSearchList = response.data.articles
@@ -118,7 +118,7 @@ class Main extends React.Component {
     + userInput
     +'&domains='
     + intlSources
-    +'&sortBy=popularity&pageSize=20&apiKey=ded05226f8e9489888443d1b682e93c6'
+    +'&sortBy=popularity&pageSize=15&apiKey=ded05226f8e9489888443d1b682e93c6'
     const response = await axios.get(queryLink)
     console.log('this is World response', response)
     let worldSearchList = response.data.articles
@@ -185,7 +185,6 @@ class Main extends React.Component {
       <Switch>
         <Route exact path='/' render={(props)=><Home
         searchInput={this.handleClick}
-        searchList ={this.state.searchList}
         usSearchList={this.state.usSearchList}
         gbSearchList={this.state.gbSearchList}
         worldResultList = {this.state.worldResultList}/> }

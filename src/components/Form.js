@@ -17,16 +17,16 @@ class Form extends React.Component {
   }
 
   render(){
-   // console.log('this.props.searchInput', this.props.searchInput)
+   console.log('this.props.searchInput', this.props.searchInput)
     return(
       <form onSubmit={(e)=>this.props.searchInput(e, this.state.value)}>
         <input
           type = 'text'
-          placeholder = 'Search and Compare!'
+          placeholder = 'Type a Topic'
           onChange = {this.handleChange}
           value = {this.state.value}
         />
-        <button type='submit'>Submit</button>
+        <button type='button'>Compare the News!</button>
       </form>
    )
  }

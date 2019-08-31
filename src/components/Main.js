@@ -20,7 +20,9 @@ class Main extends React.Component {
     gbSearchList:[],
     worldSearchList:[],
     worldResultList:[],
-    userInput:''
+    userInput:'',
+    value:'',
+    buttonClicked: false
   }
 
   makeSourceCall = async()=>{
@@ -161,6 +163,15 @@ class Main extends React.Component {
       })
   }
 
+
+    handleChange = (e) => {
+      console.log("this is handleChange", e.target.value)
+      this.setState({
+        value: e.target.value
+      })
+    }
+
+
     handleClick = async (e, userInput) =>{
       e.preventDefault()
       console.log("Search term submitted", userInput);
@@ -168,6 +179,9 @@ class Main extends React.Component {
       await this.makeUSCall(userInput);
       await this.makeGBCall(userInput);
       await this.makeWorldList();
+      this.setState({
+        buttonClicked: true
+      })
     }
 
 
@@ -184,7 +198,10 @@ class Main extends React.Component {
     <main>
       <Switch>
         <Route exact path='/' render={(props)=><Home
+        keyChange = {this.handleChange}
         searchInput={this.handleClick}
+        value = {this.state.value}
+        isButtonClicked = {this.state.buttonClicked}
         usSearchList={this.state.usSearchList}
         gbSearchList={this.state.gbSearchList}
         worldResultList = {this.state.worldResultList}/> }

@@ -8,25 +8,26 @@ class Form extends React.Component {
     value: ''
   }
 }
-
-  handleChange = (e) => {
-    console.log("this is handleChange", e.target.value)
-    this.setState({
-      value: e.target.value
-    })
-  }
+  //
+  // handleChange = (e) => {
+  //   console.log("this is handleChange", e.target.value)
+  //   this.setState({
+  //     value: e.target.value
+  //   })
+  // }
 
   render(){
    console.log('this.props.searchInput', this.props.searchInput)
+   
     return(
-      <form onSubmit={(e)=>this.props.searchInput(e, this.state.value)}>
+      <form onSubmit={(e)=>this.props.searchInput(e, this.props.value)}>
         <input
           type = 'text'
           placeholder = 'Type a Topic'
-          onChange = {this.handleChange}
-          value = {this.state.value}
+          onChange = {this.props.keyChange}
+          value = {this.props.value}
         />
-        <button type='button'>Compare the News!</button>
+        <input id="button" type="submit" value="Compare the News!"/>
       </form>
    )
  }

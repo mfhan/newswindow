@@ -11,7 +11,7 @@ class Home extends React.Component {
     <>
     <div className= 'intro'>
       <h1 className='title'>NEWSWINDOW <br />How Countries See The News</h1>
-        <div className='invitation'><span>Countries around the world see and frame the news differently. <br />Type in a search word to how angles and points of view vary. </span></div>
+        <div className='invitation'><span>Countries around the world see and frame the news differently. <br />Type a search word to compare angles and points of view. </span></div>
 
       <Form
         keyChange = {this.props.keyChange}

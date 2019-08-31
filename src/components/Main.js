@@ -78,7 +78,7 @@ class Main extends React.Component {
 
 
   makeGBCall = async(userInput)=>{
-    console.log('this is USCall')
+    console.log('this is GB Call')
     let queryLink = 'https://newsapi.org/v2/everything?q='
     + userInput
     +'&domains='
@@ -175,13 +175,13 @@ class Main extends React.Component {
     handleClick = async (e, userInput) =>{
       e.preventDefault()
       console.log("Search term submitted", userInput);
+      this.setState({
+        buttonClicked: true
+      })
       await this.makeWorldCall(userInput);
       await this.makeUSCall(userInput);
       await this.makeGBCall(userInput);
       await this.makeWorldList();
-      this.setState({
-        buttonClicked: true
-      })
     }
 
 

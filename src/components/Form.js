@@ -8,7 +8,7 @@ class Form extends React.Component {
     value: ''
   }
 }
-  //
+
   // handleChange = (e) => {
   //   console.log("this is handleChange", e.target.value)
   //   this.setState({
@@ -18,7 +18,7 @@ class Form extends React.Component {
 
   render(){
    console.log('this.props.searchInput', this.props.searchInput)
-   
+
     return(
       <form onSubmit={(e)=>this.props.searchInput(e, this.props.value)}>
         <input

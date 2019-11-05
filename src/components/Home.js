@@ -7,6 +7,7 @@ class Home extends React.Component {
 
   render(){
     const isButtonClicked = (this.props.isButtonClicked) ? 'news-list' : 'news-list-pre'
+
   return (
     <>
     <div className= 'intro'>

@@ -51,38 +51,43 @@ class Main extends React.Component {
 
 
     makeUSCall = async (userInput) => {
-      console.log('this is USCall')
-      let queryLink = 'https://newsapi.org/v2/everything?q=' +
-        userInput +
-        '&domains=' +
-        usSources +
-        '&sortBy=popularity&pageSize=10&apiKey=ded05226f8e9489888443d1b682e93c6'
-      const response = await axios.get(queryLink)
-      console.log('this is US response', response)
-      let usSearchList = response.data.articles
-        .filter(element => !badIntlSources.includes(element.name))
-        .map((d, i) => {
-          let searchItem = {
-            title: d.title,
-            url: d.url,
-            image: d.urlToImage,
-            summary: d.description,
-            id: d.source.id,
-            name: d.source.name,
-            icon: 'http://www.geonames.org/flags/x/us.gif'
-          }
-          console.log(searchItem.name);
-          return searchItem;
+      try {
+        console.log('this is USCall')
+        let queryLink = 'https://newsapi.org/v2/everything?q=' +
+          userInput +
+          '&domains=' +
+          usSources +
+          '&sortBy=popularity&pageSize=10&apiKey=ded05226f8e9489888443d1b682e93c6'
+        const response = await axios.get(queryLink)
+        console.log('this is US response', response)
+        let usSearchList = response.data.articles
+          .filter(element => !badIntlSources.includes(element.name))
+          .map((d, i) => {
+            let searchItem = {
+              title: d.title,
+              url: d.url,
+              image: d.urlToImage,
+              summary: d.description,
+              id: d.source.id,
+              name: d.source.name,
+              icon: 'http://www.geonames.org/flags/x/us.gif'
+            }
+            console.log(searchItem.name);
+            return searchItem;
+
+          })
+        this.setState({
+          usSearchList: usSearchList
         })
-      this.setState({
-        usSearchList: usSearchList
-      })
+      } catch (error) {
+        console.log(error.message);
+      }
     }
 
 
     makeGBCall = async (userInput) => {
       console.log('this is GB Call')
-      let queryLink = 'https://newsapi.org/v2/everything?q=' +
+      let queryLink = 'https://newsapi.org/v2/everything?q='+
         userInput +
         '&domains=' +
         gbSources +
